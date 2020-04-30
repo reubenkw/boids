@@ -4,6 +4,8 @@ import pygame as pg
 import time
 from bird import bird
 from flock import flock
+import shutil
+import os
 
 window_width = 1440
 window_height = 810
@@ -23,6 +25,13 @@ clock = pg.time.Clock()
 
 the_flock = flock(numBirds, 5, (window_width, window_height))
 
+
+try:
+	shutil.rmtree("images")
+except:
+	print("Images folder not found to delete")
+
+os.makedirs("images")
 n = 0
 
 while not done:
